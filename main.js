@@ -143,8 +143,10 @@ posts.forEach(() => {
     postMeta.appendChild(postMetaIcon);
 
     const postMetaData = generateElement("div", "post-meta__data");
-    postMetaData.innerHTML += `<div class="post-meta__author">${names[counter]}</div>
-        <div class="post-meta__time">${createdList[counter]}</div>`;
+    postMetaData.innerHTML += `<div class="post-meta__author">${
+        names[counter]
+    }</div>
+        <div class="post-meta__time">${invertDate(createdList[counter])}</div>`;
     postMeta.appendChild(postMetaData);
 
     const postText = generateElement("div", "post__text");
@@ -175,4 +177,12 @@ function generateElement(tagName, className) {
     const element = document.createElement(tagName);
     element.classList.add(className);
     return element;
+}
+
+function invertDate(string) {
+    const year = string.slice(0, 4);
+    const month = string.slice(4, 7);
+    const day = string.slice(8);
+    string = day + month + "-" + year;
+    return string;
 }
