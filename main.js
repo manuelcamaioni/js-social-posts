@@ -169,14 +169,6 @@ posts.forEach(() => {
                     Piace a <b id="like-counter-1" class="js-likes-counter">${likesList[counter]}</b> persone
         </div>`;
     postElement.appendChild(postFooter);
-    const likeBtn = document.querySelector("span.like-button__label");
-
-    likeBtn.addEventListener("click", () => {
-        const counterLikes =
-            document.getElementById("like-counter-1").innerHTML;
-        console.log(counterLikes);
-        console.log("funziono");
-    });
 
     counter++;
 });
