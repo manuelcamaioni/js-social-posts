@@ -42,7 +42,7 @@ const posts = [
         media: "https://unsplash.it/600/300?image=233",
         author: {
             name: "Luca Formicola",
-            image: "https://unsplash.it/300/300?image=56",
+            image: "LF",
         },
         likes: 56,
         created: "2021-04-03",
@@ -127,7 +127,7 @@ authorList.forEach((obj) => {
 const postsContainer = document.getElementById("container");
 // Creating and appending children
 let counter = 0;
-
+// let counterLikes = 0;
 posts.forEach(() => {
     const postElement = generateElement("div", "post");
     postsContainer.appendChild(postElement);
@@ -139,7 +139,7 @@ posts.forEach(() => {
     postHeader.appendChild(postMeta);
 
     const postMetaIcon = generateElement("div", "post-meta__icon");
-    postMetaIcon.innerHTML += `<img class="profile-pic" src="${images[counter]}" alt="${names[counter]}">`;
+    postMetaIcon.innerHTML += `<img class="profile-pic" src="${images[counter]}" alt="${images[counter]}">`;
     postMeta.appendChild(postMetaIcon);
 
     const postMetaData = generateElement("div", "post-meta__data");
@@ -154,13 +154,13 @@ posts.forEach(() => {
     postElement.appendChild(postText);
 
     const postImage = generateElement("div", "post__image");
-    postImage.innerHTML += `<img src="${mediaList[counter]}" alt="">`;
+    postImage.innerHTML += `<img src="${mediaList[counter]}" alt="${names[counter]}">`;
     postElement.appendChild(postImage);
 
     const postFooter = generateElement("div", "post__footer");
     postFooter.innerHTML += `<div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#" data-postid="${idList[counter]}">
+                <a class="like-button  js-like-button" data-postid="${idList[counter]}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
@@ -169,6 +169,14 @@ posts.forEach(() => {
                     Piace a <b id="like-counter-1" class="js-likes-counter">${likesList[counter]}</b> persone
         </div>`;
     postElement.appendChild(postFooter);
+    const likeBtn = document.querySelector("span.like-button__label");
+
+    likeBtn.addEventListener("click", () => {
+        const counterLikes =
+            document.getElementById("like-counter-1").innerHTML;
+        console.log(counterLikes);
+        console.log("funziono");
+    });
 
     counter++;
 });
