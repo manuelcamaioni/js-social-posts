@@ -135,14 +135,14 @@ posts.forEach(() => {
     const postHeader = generateElement("div", "post__header");
     postElement.appendChild(postHeader);
 
-    const postMeta = generateElement("div", "post_meta");
+    const postMeta = generateElement("div", "post-meta");
     postHeader.appendChild(postMeta);
 
-    const postMetaIcon = generateElement("div", "post_meta__icon");
+    const postMetaIcon = generateElement("div", "post-meta__icon");
     postMetaIcon.innerHTML += `<img class="profile-pic" src="${images[counter]}" alt="${names[counter]}">`;
     postMeta.appendChild(postMetaIcon);
 
-    const postMetaData = generateElement("div", "post_meta__data");
+    const postMetaData = generateElement("div", "post-meta__data");
     postMetaData.innerHTML += `<div class="post-meta__author">${names[counter]}</div>
         <div class="post-meta__time">${createdList[counter]}</div>`;
     postMeta.appendChild(postMetaData);
